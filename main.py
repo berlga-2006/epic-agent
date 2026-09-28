@@ -12,7 +12,18 @@ load_dotenv()
 
 
 async def main():
-    async with MCPAdapter("https://docs.langchain.com/mcp") as adapter:
+    config = {
+        "mcpServers": {
+            "docs-langchain": {
+            "url": "https://docs.langchain.com/mcp"
+            },
+            "reference-langchain": {
+            "url": "https://reference.langchain.com/mcp"
+            }
+        }
+    }
+
+    async with MCPAdapter(config) as adapter:
         mcp_tools = await adapter.list_tools()
 
     console = Console()
