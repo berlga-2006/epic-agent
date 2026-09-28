@@ -2,41 +2,23 @@ from langchain.agents import create_agent
 from langchain.chat_models import init_chat_model
 from langchain.messages import HumanMessage
 from langgraph.checkpoint.memory import InMemorySaver
+from rich.console import Console
+from rich.markdown import Markdown
 from uuid import uuid4
 from dotenv import load_dotenv
+from langchain.mcp import MCPAdapter
+import asyncio
 load_dotenv()
 
-def check_inventory(item: str, color: str) -> str:
-    """This tool checks current stock.
 
-    Parameters:
-      item - The item that the user wants to know the status of
-      color - the color of the item"""
-    fake_stock = {
-        ("hoodie", "blue"): 4,
-        ("hoodie", "black"): 12,
-        ("t-shirt", "blue"): 30,
-    }
+async def main():
+    async with MCPAdapter("https://docs.langchain.com/mcp") as adapter:
+        mcp_tools = await adapter.list_tools()
 
-    if (item.lower(), color.lower()) in fake_stock:
-        return "We're in stock!"
-    else:
-        return "We're out of stock..."
-
-def main():
+    console = Console()
 
     SYSTEM_PROMPT = """
-    ACME Clothing is literally the best retail clothing supplier.
-    Our motto: Buy now, never regret.
-
-    We supply all your clothing needs:
-    - Hoodies
-    - T-Shirts
-
-    Capabilities:
-    - check_inventory: use this function whenever you need to look up stock to see if we have a given item.
-
-    All you could ever hope for.
+    You are my personal ai assistant.
     """
 
     model = init_chat_model(
@@ -45,7 +27,7 @@ def main():
 
     agent = create_agent(
         model=model,
-        tools=[check_inventory],
+        tools=mcp_tools,
         system_prompt=SYSTEM_PROMPT,
         checkpointer=InMemorySaver(),
     )
@@ -55,13 +37,13 @@ def main():
         try:
             prompt = input("Input: ")
             if prompt == "exit": break
-            response = agent.invoke(
+            response = await agent.ainvoke(
                 {"messages": [HumanMessage(prompt)]},
                 thread_config,
             )
         except EOFError:
             break
-        print(response["messages"][-1].text)
+        console.print(Markdown(response["messages"][-1].text))
 
 if __name__ == "__main__":
-    main()
+    asyncio.run(main())

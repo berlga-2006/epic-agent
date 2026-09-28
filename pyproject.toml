@@ -8,9 +8,10 @@ authors = [
 ]
 requires-python = ">=3.9"
 dependencies = [
-    "langchain>=0.3.30",
+    "langchain[mcp]>=0.3.30",
     "langchain-google-genai>=2.1.12",
     "python-dotenv>=1.2.1",
+    "rich>=15.0.0",
 ]
 
 [project.scripts]
