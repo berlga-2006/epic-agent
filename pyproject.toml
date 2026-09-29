@@ -15,7 +15,7 @@ dependencies = [
 ]
 
 [project.scripts]
-epic-agent = "epic_agent:main"
+epic-agent = "epic_agent.main:main"
 
 [build-system]
 requires = ["uv_build>=0.12.18,<0.13.0"]

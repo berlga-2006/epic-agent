@@ -10,8 +10,10 @@ from langchain.mcp import MCPAdapter
 import asyncio
 load_dotenv()
 
+def main():
+    asyncio.run(_main())
 
-async def main():
+async def _main():
     config = {
         "mcpServers": {
             "docs-langchain": {
@@ -57,4 +59,4 @@ async def main():
         console.print(Markdown(response["messages"][-1].text))
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    main()
