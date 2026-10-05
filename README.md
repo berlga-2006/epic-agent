@@ -1,0 +1,1 @@
+A simple ai assistant that is connected to the langchain docs, has file storage, and can create, modify, and read excel spreadsheets.

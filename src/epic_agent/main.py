@@ -35,7 +35,18 @@ async def _main():
                 "C:\\Users\\berlg\\Documents\\University\\Fall-2026\\ai-engineering\\ai-file-storage"
             ]
             },
-        }
+            "excel": {
+                "command": "cmd",
+                "args": [
+                    "/c",
+                    "npx",
+                    "--yes",
+                    "@negokaz/excel-mcp-server"],
+                "env": {
+                    "EXCEL_MCP_PAGING_CELLS_LIMIT": "4000"
+                }
+            }
+        }   
     }
 
     async with MCPAdapter(config) as adapter:
@@ -47,8 +58,6 @@ async def _main():
     You are my personal ai assistant.
 
     The user can type 'exit' to finish their conversation.
-
-    Maintain a history of 
     """
 
     model = init_chat_model(
