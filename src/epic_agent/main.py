@@ -28,7 +28,7 @@ async def _main():
             "command": "cmd.exe", 
             "args": [
                 "/c",
-                "npx"
+                "npx",
                 "-y", 
                 "@modelcontextprotocol/server-filesystem",
                 "C:\\Users\\berlg\\Desktop",
@@ -47,6 +47,8 @@ async def _main():
     You are my personal ai assistant.
 
     The user can type 'exit' to finish their conversation.
+
+    Maintain a history of 
     """
 
     model = init_chat_model(
