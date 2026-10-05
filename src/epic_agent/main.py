@@ -8,7 +8,9 @@ from uuid import uuid4
 from dotenv import load_dotenv
 from langchain.mcp import MCPAdapter
 import asyncio
+import warnings
 load_dotenv()
+warnings.filterwarnings("ignore", message=".*Key '.*' is not supported in schema.*")
 
 def main():
     asyncio.run(_main())
@@ -21,7 +23,18 @@ async def _main():
             },
             "reference-langchain": {
             "url": "https://reference.langchain.com/mcp"
-            }
+            },
+            "files": {
+            "command": "cmd.exe", 
+            "args": [
+                "/c",
+                "npx"
+                "-y", 
+                "@modelcontextprotocol/server-filesystem",
+                "C:\\Users\\berlg\\Desktop",
+                "C:\\Users\\berlg\\Documents\\University\\Fall-2026\\ai-engineering\\ai-file-storage"
+            ]
+            },
         }
     }
 
@@ -32,6 +45,8 @@ async def _main():
 
     SYSTEM_PROMPT = """
     You are my personal ai assistant.
+
+    The user can type 'exit' to finish their conversation.
     """
 
     model = init_chat_model(
