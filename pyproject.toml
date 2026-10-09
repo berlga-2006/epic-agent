@@ -12,6 +12,7 @@ dependencies = [
     "langchain-google-genai>=2.1.12",
     "python-dotenv>=1.2.1",
     "rich>=15.0.0",
+    "langgraph>=0.6.11",
 ]
 
 [project.scripts]

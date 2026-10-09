@@ -8,9 +8,10 @@ from uuid import uuid4
 from dotenv import load_dotenv
 from langchain.mcp import MCPAdapter
 import asyncio
-import warnings
+import sys
+import os.path
+
 load_dotenv()
-warnings.filterwarnings("ignore", message=".*Key '.*' is not supported in schema.*")
 
 def main():
     asyncio.run(_main())
@@ -19,34 +20,31 @@ async def _main():
     config = {
         "mcpServers": {
             "docs-langchain": {
-            "url": "https://docs.langchain.com/mcp"
+                "url": "https://docs.langchain.com/mcp"
             },
             "reference-langchain": {
-            "url": "https://reference.langchain.com/mcp"
+                "url": "https://reference.langchain.com/mcp"
             },
             "files": {
-            "command": "cmd.exe", 
-            "args": [
-                "/c",
-                "npx",
-                "-y", 
-                "@modelcontextprotocol/server-filesystem",
-                "C:\\Users\\berlg\\Desktop",
-                "C:\\Users\\berlg\\Documents\\University\\Fall-2026\\ai-engineering\\ai-file-storage"
-            ]
-            },
-            "excel": {
-                "command": "cmd",
+                "command": "cmd.exe", 
                 "args": [
                     "/c",
                     "npx",
-                    "--yes",
-                    "@negokaz/excel-mcp-server"],
+                    "-y", 
+                    "@modelcontextprotocol/server-filesystem",
+                    "C:\\Users\\berlg\\Documents\\University\\Fall-2026\\ai-engineering\\epic-agent\\src\\epic_agent\\excel_files",
+                    "C:\\Users\\berlg\\Documents\\University\\Fall-2026\\ai-engineering\\ai-file-storage"
+                ]
+            },
+            "mcp-excel-stdio": {
+                "command": "C:/Users/berlg/Documents/University/Fall-2026/ai-engineering/mcp_excel_server/.venv/Scripts/python.exe",
+                "args": ["C:\\Users\\berlg\\Documents\\University\\Fall-2026\\ai-engineering\\mcp_excel_server\\src\\mcp_excel_server\\__main__.py", "stdio"],
                 "env": {
-                    "EXCEL_MCP_PAGING_CELLS_LIMIT": "4000"
+                    **os.environ,
+                    "PYTHONPATH": "src",
                 }
             }
-        }   
+        }
     }
 
     async with MCPAdapter(config) as adapter:
@@ -58,6 +56,9 @@ async def _main():
     You are my personal ai assistant.
 
     The user can type 'exit' to finish their conversation.
+
+    You have the ability to create excel spreadsheets. You should save all of these in your ai-file-storage folder.
+    By default save this files as .xlsx files.
     """
 
     model = init_chat_model(
