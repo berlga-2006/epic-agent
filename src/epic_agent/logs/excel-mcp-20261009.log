@@ -178,3 +178,37 @@
 2026-10-09 15:43:37 - mcp_excel_server.api.server - INFO - ==================================================
 2026-10-09 15:43:37 - mcp_excel_server.api.server - INFO - Server shutdown complete
 2026-10-09 15:43:37 - __main__ - INFO - Service stopped.
+2026-10-09 17:33:27 - mcp_excel_server.core.workbook - INFO - Logger initialized
+2026-10-09 17:33:27 - mcp_excel_server.core.cell_utils - INFO - Logger initialized
+2026-10-09 17:33:27 - mcp_excel_server.core.sheet - INFO - Logger initialized
+2026-10-09 17:33:27 - mcp_excel_server.api.tools.worksheet - INFO - Logger initialized
+2026-10-09 17:33:27 - mcp_excel_server.core.data - INFO - Logger initialized
+2026-10-09 17:33:27 - mcp_excel_server.api.tools.workbook - INFO - Logger initialized
+2026-10-09 17:33:27 - mcp_excel_server.api.tools.range - INFO - Logger initialized
+2026-10-09 17:33:27 - mcp_excel_server.api.server - INFO - Logger initialized
+2026-10-09 17:33:27 - __main__ - INFO - Logger initialized
+2026-10-09 17:33:27 - mcp_excel_server.api.server - INFO - ==================================================
+2026-10-09 17:33:27 - mcp_excel_server.api.server - INFO - MCP Excel Server Starting (stdio mode)
+2026-10-09 17:33:27 - mcp_excel_server.api.server - INFO - ==================================================
+2026-10-09 17:33:27 - mcp_excel_server.api.server - INFO - Version: 0.1.0
+2026-10-09 17:33:27 - mcp_excel_server.api.server - INFO - Log level: INFO
+2026-10-09 17:33:27 - mcp_excel_server.api.server - INFO - ==================================================
+2026-10-09 17:33:27 - mcp_excel_server.api.server - INFO - Server shutdown complete
+2026-10-09 17:33:27 - __main__ - INFO - Service stopped.
+2026-10-09 17:33:29 - mcp_excel_server.core.workbook - INFO - Logger initialized
+2026-10-09 17:33:29 - mcp_excel_server.core.cell_utils - INFO - Logger initialized
+2026-10-09 17:33:29 - mcp_excel_server.core.sheet - INFO - Logger initialized
+2026-10-09 17:33:29 - mcp_excel_server.api.tools.worksheet - INFO - Logger initialized
+2026-10-09 17:33:29 - mcp_excel_server.core.data - INFO - Logger initialized
+2026-10-09 17:33:29 - mcp_excel_server.api.tools.workbook - INFO - Logger initialized
+2026-10-09 17:33:29 - mcp_excel_server.api.tools.range - INFO - Logger initialized
+2026-10-09 17:33:29 - mcp_excel_server.api.server - INFO - Logger initialized
+2026-10-09 17:33:29 - __main__ - INFO - Logger initialized
+2026-10-09 17:33:29 - mcp_excel_server.api.server - INFO - ==================================================
+2026-10-09 17:33:29 - mcp_excel_server.api.server - INFO - MCP Excel Server Starting (stdio mode)
+2026-10-09 17:33:29 - mcp_excel_server.api.server - INFO - ==================================================
+2026-10-09 17:33:29 - mcp_excel_server.api.server - INFO - Version: 0.1.0
+2026-10-09 17:33:29 - mcp_excel_server.api.server - INFO - Log level: INFO
+2026-10-09 17:33:29 - mcp_excel_server.api.server - INFO - ==================================================
+2026-10-09 17:33:29 - mcp_excel_server.api.server - INFO - Server shutdown complete
+2026-10-09 17:33:29 - __main__ - INFO - Service stopped.
